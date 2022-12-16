@@ -1,6 +1,6 @@
 import { GRID_DEFAULT_SIZE, GRID_MAX_SIZE, GRID_MIN_SIZE, OBSTACLES_DEFAULT_COUNT, TILE_MAX_SIZE } from '@/config';
 import { defineStore } from 'pinia';
-import { computed, ref } from 'vue';
+import { computed, ref, type Ref } from 'vue';
 import { useBoardStore } from './board';
 
 export const useConfigStore = defineStore('config', () => {
@@ -9,21 +9,22 @@ export const useConfigStore = defineStore('config', () => {
   const columnsCount = ref(GRID_DEFAULT_SIZE);
   const obstaclesCount = ref(OBSTACLES_DEFAULT_COUNT);
 
+  function update(variable: Ref<number>, value: number) {
+    variable.value = value;
+    resetGame();
+  }
   function updateRowsCount(value: number) {
     if (!isValidGridSize(value)) return;
 
-    rowsCount.value = Math.round(value);
-    resetGame();
+    update(rowsCount, value);
   }
   function updateColumnsCount(value: number) {
     if (!isValidGridSize(value)) return;
 
-    columnsCount.value = Math.round(value);
-    resetGame();
+    update(columnsCount, value);
   }
   function updateObstaclesCount(value: number) {
-    obstaclesCount.value = value;
-    resetGame();
+    update(obstaclesCount, value);
   }
 
   function resetGame() {

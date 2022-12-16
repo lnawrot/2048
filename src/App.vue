@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import GameConfig from '@/components/GameConfig.vue';
+import GameConfig from '@/components/GameConfig/index.vue';
 import GameBoard from '@/components/GameBoard.vue';
 import { onBeforeUnmount, onMounted } from 'vue';
 import { useBoardStore } from './stores/board';

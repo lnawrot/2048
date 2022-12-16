@@ -24,12 +24,12 @@ export const useBoardStore = defineStore('board', () => {
   function init() {
     tiles.value = [];
     isInTransition = false;
-    addRandom(2);
+    addRandom();
     const { obstaclesCount } = useConfigStore();
     times(obstaclesCount, () => addRandom(OBSTACLE_VALUE));
   }
 
-  function addRandom(value = 1): boolean {
+  function addRandom(value = 2): boolean {
     const availablePositions = getAvailablePositions(possiblePositions.value, tiles.value);
     if (!availablePositions) return false;
 
@@ -75,7 +75,6 @@ export const useBoardStore = defineStore('board', () => {
     tiles,
 
     init,
-    addRandom,
     handleMove,
 
     isObstacle,

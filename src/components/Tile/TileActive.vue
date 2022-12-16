@@ -55,7 +55,7 @@ function onTransitionEnd() {
 }
 
 .content {
-  transition: background-color 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out, border 0.25s ease-in-out;
 
   display: flex;
   justify-content: center;
@@ -82,6 +82,8 @@ function onTransitionEnd() {
 @mixin valueColor($value, $color) {
   .value-#{$value} {
     background-color: $color;
+    border: 5px solid lighten($color, 5%);
+    box-sizing: border-box;
   }
 }
 @include valueColor(1, #00aa9f);

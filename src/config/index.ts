@@ -1,8 +1,8 @@
 export const WIN_AT = 2048;
 
-export const GRID_DEFAULT_SIZE = 6;
+export const GRID_DEFAULT_SIZE = 4;
 export const GRID_MIN_SIZE = 1;
-export const GRID_MAX_SIZE = 10;
+export const GRID_MAX_SIZE = 6;
 
 export const TILE_MAX_SIZE = 120;
 

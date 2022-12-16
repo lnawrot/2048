@@ -1,5 +1,5 @@
 export function delay(duration = 250) {
-  return new Promise((resolve) => window.setTimeout(resolve, duration));
+  return new Promise<void>((resolve) => window.setTimeout(resolve, duration));
 }
 
 export function waitForEvent(name: string) {

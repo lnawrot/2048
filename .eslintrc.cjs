@@ -20,5 +20,6 @@ module.exports = {
       'error',
       'single',
     ],
+    'vue/multi-word-component-names': 'off',
   }
 };
